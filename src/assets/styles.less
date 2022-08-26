@@ -1,0 +1,58 @@
+@spacing-s: 8px;
+@spacing-m: 16px;
+@spacing-l: 24px;
+
+
+@ColorGray:#DEDEDE;
+
+
+.gap--m {
+  gap: @spacing-m;
+}
+
+.form-control {
+  &.underlined {
+    background-color: transparent;
+    border: unset;
+    border-bottom: 1px solid @ColorGray;
+    border-radius: 0;
+    &:active {
+      background-color: transparent;
+    }
+    &:focus {
+      background-color: transparent;
+    }
+    &:visited {
+      background-color: transparent;
+    }
+  }
+}
+
+label {
+  margin-bottom: 0;
+}
+
+.btn-round {
+  border-radius: 50%;
+  height: 34px;
+  width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: unset;
+}
+.btn-round--filled {
+  .btn-round;
+  box-shadow: 0px 1px 14px #5948AD;
+  background-color: #fff;
+}
+.btn-round--transparent {
+  .btn-round;
+  background-color: transparent;
+}
+
+.container--m {
+  max-width: 764px;
+  width: 100%;
+  margin: auto;
+}

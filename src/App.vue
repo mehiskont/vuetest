@@ -1,5 +1,10 @@
 <template>
-  <div class="container mt-5">
+
+
+  
+  <div class="container--m">
+  <Navbar />
+    <LoanForm />
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-group
           id="input-group-1"
@@ -42,7 +47,15 @@
   </div>
 </template>
 <script>
+
+import Navbar from './components/Navbar'
+import LoanForm from "@/components/LoanForm";
+
 export default {
+  components: {
+    LoanForm,
+    Navbar
+  },
   data() {
     return {
       form: {
