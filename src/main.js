@@ -1,14 +1,28 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueFloatLabel from "vue-float-label";
+import VueFloatLabel from "vue-float-label"
+import money from 'v-money'
+import VueInputAutowidth from 'vue-input-autowidth'
 
+
+//style imports
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/styles.less'
 
 Vue.config.productionTip = false
-Vue.use(VueFloatLabel);
+
+Vue.filter('formatNumber', function (value, decimals = 0, thousandsSeparator = ' ') {
+  let result = parseFloat(value).toFixed(decimals).toString();
+  if(thousandsSeparator) result = result.replace(/\B(?=(\d{3})+(?!\d))/g, thousandsSeparator)
+  return result
+});
+
+
+Vue.use(VueInputAutowidth)
+Vue.use(money, {precision: 0})
+Vue.use(VueFloatLabel)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 new Vue({

@@ -1,20 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
 @spacing-s: 8px;
 @spacing-m: 16px;
 @spacing-l: 24px;
 
 
 @ColorGray:#DEDEDE;
+@ColorDanger: #EB5757;
 
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.text--xxs {
+  font-size: 10px;
+}
+.text--xs {
+  font-size: 12px;
+}
+.text--s {
+  font-size: 14px;
+}
+.text--m {
+  font-size: 16px;
+}
+.color--danger {
+  color:@ColorDanger;
+}
 .gap--m {
   gap: @spacing-m;
 }
-
+.self-baseline {
+  align-self: baseline;
+}
 .form-control {
   &.underlined {
     background-color: transparent;
     border: unset;
-    border-bottom: 1px solid @ColorGray;
     border-radius: 0;
     &:active {
       background-color: transparent;
@@ -27,7 +49,15 @@
     }
   }
 }
-
+.invalid {
+  .underlined{
+    border-bottom: 1px solid @ColorDanger !important;
+  }
+}
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
 label {
   margin-bottom: 0;
 }
@@ -40,11 +70,15 @@ label {
   align-items: center;
   justify-content: center;
   border: unset;
+  transition: all 0.15s;
 }
 .btn-round--filled {
   .btn-round;
   box-shadow: 0px 1px 14px #5948AD;
   background-color: #fff;
+  &:hover {
+    box-shadow: 0px 1px 25px 4px #5948AD;
+  }
 }
 .btn-round--transparent {
   .btn-round;
@@ -55,4 +89,159 @@ label {
   max-width: 764px;
   width: 100%;
   margin: auto;
+}
+
+.suffix-currency {
+  font-size: 12px;
+  bottom: 4px;
+  position: relative;
+}
+
+.width-120 {
+  width: 120px !important;
+}
+
+.input-fill--currency {
+  position: relative;
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 4px;
+    right: 0;
+    font-weight: 300;
+    font-size: 12px;
+    display: block;
+    color: #FDFDFD;
+  }
+  input {
+    padding-right: 8px !important;
+    text-align: right;
+    position: relative;
+    width: 70px !important;
+  }
+}
+.input-fill--months {
+  position: relative;
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 4px;
+    right: 0;
+    font-weight: 300;
+    font-size: 16px;
+    display: block;
+    color: #FDFDFD;
+  }
+  input {
+    padding-right: 58px !important;
+    text-align: right;
+    position: relative;
+    width: 100px !important;
+  }
+}
+
+.hint {
+  color: @ColorGray;
+  font-size: 10px;
+  font-weight: 300;
+  margin-bottom: 0;
+  line-height: 10px;
+}
+.loan-form__intro  *{
+  margin-bottom: 0;
+}
+.loan-form__intro {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: baseline;
+  color: @ColorGray;
+}
+.margin-top--2 {
+  margin-top:2px;
+}
+.bar--round(@bgColor) {
+  background-color: @bgColor;
+  border-radius: 30px;
+  min-height: 58px;
+}
+.personal-form {
+  .bar--round( #F8F5FC);
+  border: 5px solid #F3EEFB;
+  display: flex;
+  flex-wrap: wrap;
+  grid-column-gap: 0;
+  grid-row-gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0 0 0;
+  position: relative;
+  overflow: hidden;
+  .btn-round--filled {
+    position: absolute;
+    top: 20px;
+    right: 7px;
+  }
+}
+.personal-form__name {
+  flex: 0 0 100%;
+  text-align: center;
+  font-size: 18px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.personal-form__id,
+.personal-form__phone,
+.personal-form__email {
+  height: 50px;
+  background-color: #fdfdfd;
+  flex: 1;
+  gap: 8px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loan-form {
+  .bar--round( #2B0A57);
+  display: grid;
+  grid-template-columns: 1fr max-content max-content max-content 1fr;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  .btn-round--filled {
+    justify-self: end;
+  }
+}
+.loan-form:before {
+  content: "";
+}
+.loan-form__sum {
+  color: @ColorGray;
+  background: #3A156C;
+  padding: 8px 16px;
+  border-radius: 30px;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  p {
+    margin-bottom: 0;
+    font-weight: 300;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

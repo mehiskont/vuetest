@@ -8,11 +8,18 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vuelidate/core": "^2.0.0-alpha.44",
+    "@vuelidate/validators": "^2.0.0-alpha.31",
+    "@vueuse/core": "^9.1.1",
     "bootstrap-vue": "^2.22.0",
     "core-js": "^3.8.3",
+    "v-money": "^0.8.1",
     "vue": "^2.6.14",
+    "vue-currency-input": "^3.0.0",
     "vue-float-label": "^1.6.1",
-    "vue-simple-floating-labels": "^1.0.4"
+    "vue-input-autowidth": "^1.0.11",
+    "vue-simple-floating-labels": "^1.0.4",
+    "vue-weblineindia-currency-input": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
