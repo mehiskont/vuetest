@@ -57,7 +57,7 @@
 
       <div class="h-line--gray mt-4 mb-4">Or</div>
       <div class="d-flex gap--m justify-content-center mb-4">
-        <toggle-button color="#53CBA0" width="34" height="20" @change="toggleSomething"/>
+        <toggle-button color="#53CBA0" :width="34" :height="20" @change="toggleSomething"/>
         <p class="mb-0 text--s color--gray-dark">Add address manually</p>
       </div>
       <div class="h-line--gray mt-4 mb-4 gap--0"></div>

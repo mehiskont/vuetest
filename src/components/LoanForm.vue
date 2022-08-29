@@ -10,8 +10,8 @@
     <div v-if="show" class="form-group d-flex align-items-center" :class="{ 'invalid' : amountErrors.length }">
       <div class="mr-2 text-right">
         <label>Amount</label>
-        <p class="hint color--danger" v-if="amountErrors.length">Out of range</p>
-        <p class="hint" v-else>{{amountMin}} - {{amountMax | formatNumber}} {{currency}}</p>
+        <!--<p class="hint color--danger" v-if="amountErrors.length">Out of range</p>-->
+        <p class="hint">{{amountMin}} - {{amountMax | formatNumber}} {{currency}}</p>
       </div>
       <label class="input-fill--currency" :data-text="currency">
         <input id="amount"
@@ -30,6 +30,7 @@
                min="1" step="1" max="36"
                class="form-control underlined"
                v-model="months"
+               @blur="blurEventMonths($event)"
                type="number"
                required/>
       </label>
@@ -81,11 +82,18 @@ export default {
     blurEventAmount: function (e) {
       this.amountErrors = [];
       const amount = e.target.value;
-      console.log(amount);
       if (amount < this.amountMin) {
         this.amountErrors.push('Amount needs to be bigger');
+        this.amount = this.amountMin;
       } else if (amount > this.amountMax) {
         this.amountErrors.push('Amount needs to be smaller');
+        this.amount = this.amountMax;
+      }
+    },
+    blurEventMonths: function (e) {
+      const amount = e.target.value;
+      if (amount <= 1) {
+        this.months = 1;
       }
     },
     toggleForm() {
