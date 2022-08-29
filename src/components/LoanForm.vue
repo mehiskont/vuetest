@@ -70,7 +70,7 @@ export default {
       amountMin: 200,
       amountMax: 10000,
       months: 36,
-      show: true,
+      show: false,
       currency: '€'
     }
   },
@@ -86,6 +86,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 @ColorGray:#DEDEDE;
+@mobileViewWidth: 800px;
 h1 {
   color: @ColorGray;
   font-style: normal;
@@ -120,6 +121,15 @@ h1 {
 
 .is-hidden {
   grid-template-columns: 34px 1fr;
+  @media (max-width: @mobileViewWidth) {
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+  button {
+    grid-row: ~"2/3";
+    margin: auto;
+    transform: rotate(270deg);
+  }
 }
 .is-hidden:before {
   content: unset;

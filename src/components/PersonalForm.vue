@@ -110,6 +110,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 @ColorGray:#DEDEDE;
+@mobileViewWidth: 800px;
 h1 {
   color: @ColorGray;
   font-style: normal;
@@ -150,6 +151,10 @@ h1 {
   padding: 8px 12px;
   border: 0 solid #F8F5FC;
   background-color: #F8F5FC;
+  @media (max-width: @mobileViewWidth) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
   .form-control {
    border-bottom: 1px solid #9C9C9C;
    &:hover {
@@ -175,6 +180,11 @@ h1 {
      top: unset;
      right:unset;
      justify-self: end;
+
+     @media (max-width: @mobileViewWidth) {
+       width: 100%;
+       border-radius: 30px;
+     }
     &:hover {
       background-color: #FDFDFD;
       svg.icon-caret--purple {

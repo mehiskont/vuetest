@@ -9,25 +9,10 @@
 
     <b-navbar-toggle target="navbar-toggle-collapse">
       <template #default="{ expanded }">
-
-        <svg  v-if="expanded" width="22" height="11" viewBox="0 0 22 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g clip-path="url(#clip0_1_19)">
-            <rect width="22" height="11" fill="white"/>
-            <g clip-path="url(#clip1_1_19)">
-              <path d="M1 10L15.375 3.44937L20.75 1" stroke="#413C3C" stroke-linecap="round"/>
-              <path d="M1 1L15.557 7.55063L21 10" stroke="#413C3C" stroke-linecap="round"/>
-            </g>
-          </g>
-          <defs>
-            <clipPath id="clip0_1_19">
-              <rect width="22" height="11" fill="white"/>
-            </clipPath>
-            <clipPath id="clip1_1_19">
-              <rect width="22" height="11" fill="white"/>
-            </clipPath>
-          </defs>
+        <svg v-if="expanded" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L24 24" stroke="#9C9C9C" stroke-linecap="round"/>
+          <path d="M1 24L24 1" stroke="#9C9C9C" stroke-linecap="round"/>
         </svg>
-
         <svg v-else width="22" height="11" viewBox="0 0 22 11" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_1_11)">
             <rect width="22" height="11" fill="white"/>
@@ -45,8 +30,6 @@
             </clipPath>
           </defs>
         </svg>
-
-
 
       </template>
     </b-navbar-toggle>

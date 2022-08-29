@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueFloatLabel from "vue-float-label"
-import money from 'v-money'
 import VueInputAutowidth from 'vue-input-autowidth'
-
+import ToggleButton from 'vue-js-toggle-button'
 
 //style imports
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
@@ -19,9 +18,8 @@ Vue.filter('formatNumber', function (value, decimals = 0, thousandsSeparator = '
   return result
 });
 
-
+Vue.use(ToggleButton)
 Vue.use(VueInputAutowidth)
-Vue.use(money, {precision: 0})
 Vue.use(VueFloatLabel)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
