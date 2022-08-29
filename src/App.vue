@@ -2,7 +2,7 @@
 
   <b-container class="mb-5" fluid="lg">
     <Navbar />
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show" class="container--m">
+    <b-form @submit="onSubmit" v-if="show" class="container--m">
       <LoanForm />
       <PersonalForm />
       <p class="color--gray-dark mt-5 mb-4">Personal Data</p>

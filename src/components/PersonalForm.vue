@@ -25,7 +25,7 @@
       <input type="tel"
              @blur="blurEventHandlerPhone($event)"
              class="form-control underlined"
-             v-autowidth="{maxWidth: '160px', minWidth: '100px', comfortZone: 0}"
+             v-autowidth="{maxWidth: '150px', minWidth: '100px', comfortZone: 0}"
           v-model="personalPhone"/>
     </div>
     <div class="personal-form__email" :class="{ 'invalid' : emailErrors.length }">
@@ -36,7 +36,7 @@
       <input type="email"
              @blur="blurEventHandlerEmail($event)"
              class="form-control underlined"
-             v-autowidth="{maxWidth: '180px', minWidth: '70px', comfortZone: 0}"
+             v-autowidth="{maxWidth: '240px', minWidth: '70px', comfortZone: 0}"
              v-model="personalEmail"/>
     </div>
     <button class="btn-round--filled" :class="{ 'disabled' : !edit && phoneErrors.length || !edit && emailErrors.length}" @click="toggleForm">
@@ -72,7 +72,6 @@ export default {
     blurEventHandlerEmail: function (e) {
       this.emailErrors = [];
       const email = e.target.value;
-      console.log(email);
       if (!email) {
         this.emailErrors.push('Email required');
       } else if (!this.validEmail(email)) {
@@ -82,7 +81,6 @@ export default {
     blurEventHandlerPhone: function (e) {
       this.phoneErrors = [];
       const phone = e.target.value;
-      console.log(phone);
       if (!phone) {
         this.phoneErrors.push('Phone number required');
       } else if (!this.validNumber(phone)) {
@@ -95,7 +93,6 @@ export default {
     },
     validNumber: function (number) {
       if (number.length !== 11) {
-        console.log(number.length)
         return false
       }else return true
     },
@@ -111,6 +108,8 @@ export default {
 <style lang="less" scoped>
 @ColorGray:#DEDEDE;
 @mobileViewWidth: 800px;
+@mobileViewWidthMin: 801px;
+
 h1 {
   color: @ColorGray;
   font-style: normal;
@@ -144,9 +143,15 @@ h1 {
 .personal-form__hint {
   color: #413C3C;
 }
+.personal-form__id,
+.personal-form__name,
+.personal-form__phone,
+.personal-form__email {
+  pointer-events: none;
+}
 .personal-form.is-edit {
   display: grid;
-  grid-template-columns: 220px max-content max-content 1fr;
+  grid-template-columns: 220px max-content 1fr max-content;
   gap: 24px;
   padding: 8px 12px;
   border: 0 solid #F8F5FC;
@@ -166,6 +171,7 @@ h1 {
   .personal-form__phone,
   .personal-form__email {
     background-color: #F8F5FC;
+    pointer-events: unset;
     &:hover {
       svg {
         path{
@@ -195,7 +201,11 @@ h1 {
     }
    }
 }
-
+@media (min-width: @mobileViewWidthMin) {
+  .personal-form__email {
+    margin-right: auto;
+  }
+}
 
 .btn-round--filled {
   box-shadow: unset;
