@@ -130,6 +130,9 @@ h1 {
   font-size: 14px;
   padding: 0;
   color: #413C3C;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .form-group  {
   margin-bottom: 0;

@@ -324,6 +324,9 @@ label {
   gap: 16px;
   align-items: baseline;
   color: @ColorGray;
+  @media(max-width: @mobileViewWidth) {
+    padding-top: @spacing-m;
+  }
 }
 .margin-top--2 {
   margin-top:2px;
@@ -468,3 +471,5 @@ input[type="checkbox"]:checked::before {
 input[type="checkbox"]:checked {
   border: 1px solid @ColorPurple;
 }
+
+

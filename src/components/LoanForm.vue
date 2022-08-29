@@ -7,11 +7,11 @@
       </svg>
     </button>
 
-    <div v-if="show" class="form-group d-flex align-items-center" :class="{ 'invalid' : amountErrors.length }">
+    <div v-if="show" class="form-group d-flex align-items-center">
       <div class="mr-2 text-right">
         <label>Amount</label>
         <!--<p class="hint color--danger" v-if="amountErrors.length">Out of range</p>-->
-        <p class="hint">{{amountMin}} - {{amountMax | formatNumber}} {{currency}}</p>
+        <p class="hint" :class="{ 'color--danger' : amountErrors.length }">{{amountMin}} - {{amountMax | formatNumber}} {{currency}}</p>
       </div>
       <label class="input-fill--currency" :data-text="currency">
         <input id="amount"
