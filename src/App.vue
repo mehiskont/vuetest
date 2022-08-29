@@ -5,6 +5,7 @@
     <b-form @submit="onSubmit" v-if="show" class="container--m">
       <LoanForm />
       <PersonalForm />
+
       <p class="color--gray-dark mt-5 mb-4">Personal Data</p>
       <div class="grid--2 gap-col--l gap-row--m">
         <float-label label="Country">
@@ -54,15 +55,13 @@
           </float-label>
         </div>
       </div>
-
       <div class="h-line--gray mt-4 mb-4">Or</div>
       <div class="d-flex gap--m justify-content-center mb-4">
         <toggle-button color="#53CBA0" :width="34" :height="20" @change="toggleSomething"/>
         <p class="mb-0 text--s color--gray-dark">Add address manually</p>
       </div>
       <div class="h-line--gray mt-4 mb-4 gap--0"></div>
-
-        <b-row>
+      <b-row>
           <b-col md="6" offset-md="3">
             <label class="grid--checkbox mt-4">
               <input type="checkbox" name="checkbox" v-model="form.isPep"/>
@@ -111,7 +110,6 @@
             <b-button type="submit" variant="primary" class="btn-block mt-5">Continue</b-button>
           </b-col>
         </b-row>
-
       </b-form>
     <b-form/>
   </b-container>
@@ -143,7 +141,6 @@ export default {
         isPep: false,
         isUbo: false,
       },
-      foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
       show: true
     }
   },
